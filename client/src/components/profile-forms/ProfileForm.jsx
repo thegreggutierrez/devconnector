@@ -24,7 +24,7 @@ const initialState = {
   instagram: ''
 };
 
-const EditProfile = ({
+const ProfileForm = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile
@@ -261,7 +261,7 @@ const EditProfile = ({
   );
 };
 
-EditProfile.propTypes = {
+ProfileForm.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
@@ -272,5 +272,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
-  EditProfile
+  ProfileForm
 );

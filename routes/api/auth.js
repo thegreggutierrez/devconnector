@@ -37,7 +37,6 @@ router.post(
     const { email, password } = req.body;
 
     try {
-      // User validation
       let user = await User.findOne({ email });
 
       if (!user) {
@@ -46,7 +45,6 @@ router.post(
           .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
 
-      // Password validation
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
@@ -55,7 +53,6 @@ router.post(
           .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
 
-      // Return jsonwebtoken
       const payload = {
         user: {
           id: user.id
